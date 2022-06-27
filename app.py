@@ -43,7 +43,7 @@ def predict():
             uploads = ['happy/' + file for file in uploads]
             uploads.reverse()
     
-    T
+    
     return render_template("index.html",prediction_text = "he sentiment is {}".format(prediction),uploads=uploads)
 
 if __name__=="__main__":
