@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <meta charset="UTF-8">
+       <meta http-equiv="X-UA-Compatible" content="IE=edge">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <title>Movie Sentiment Analysis</title>
+</head>
+
+<div class = "container">
+       <body style="background-color:#cb9530">
+              {% for upload in uploads %} 
+              {% if ('png' in upload) or ('jpg' in upload) or ('jpeg' in upload) %}   
+              <div class="columnu">
+                     <img class="preview-image" src="{{url_for('static', filename=upload)}}" alt="{{upload}}">
+                     
+              </div>
+              {% endif %}
+              {% endfor %}
+              <h1 class = "text-left ">MOVIE SENTIMENT ANALYSIS</h1>
+              <div class="form-group">
+              <form action = "{{ url_for('predict')}}" method="post" >
+                     <label for="exampleInputreview">INPUT REVIEW:      </label>
+                     <input class="form-control" type="Comment" name="comment"/>                   
+                     <button type="submit" class="btn btn-primary mt3">predict</button>
+              </form>
+          <h2 class=" text-left">{{prediction_text}} </h2>
+          <br>
+          <br>
+          
+        
+
+          
+       
+       </body>
+</div>
+</html>
